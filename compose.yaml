@@ -1,0 +1,22 @@
+services:
+  web:
+    image: nginx:1.21.1
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf # Nginxの設定ファイル
+      - ./fastcgi-php.conf:/etc/nginx/fastcgi-php.conf # NginxのPHP設定のファイル
+      - ./public:/var/www/html # 静的ファイルのソースコード
+
+  php:
+    image: php:8.0.8-fpm
+    volumes:
+      - ./src:/var/www/src # PHPのソースコード
+
+  node:
+    build: .
+    volumes:
+      - .:/app
+    working_dir: /app
+    user: "1000:1000" # 実行ユーザーを指定
+    command: sh -c "npm install && gulp"
