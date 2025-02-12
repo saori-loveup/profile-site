@@ -5,9 +5,8 @@ function getWorksData() {
   fetch(api_url)
     .then((responce) => responce.json())
     .then((works_data) => {
-      const parent_element = document.getElementById("js-works");
-      for (const i in works_data) {
-        const data = works_data[i];
+      const parent_element = document.getElementById("js-works")!;
+      for (const data of works_data) {
         const html = `
         <section>
             <header>
