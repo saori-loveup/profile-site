@@ -6,14 +6,14 @@
     <title>SIPs -Saori Ito's Profile site-</title>
     <meta name="description" content="イトウサオリのプロフィールサイトです。" />
     <link rel="icon" href="favicon.ico" />
-
+    <link rel="stylesheet" href="css/style.css" />
     <script src="js/script.js"></script>
   </head>
   <body>
-    <header>
-      <img src="img/nero_peko.svg" alt="ネロ＆ペコ アイコン" />
-      <nav>
-        <ul>
+    <header class="l-header">
+      <img src="img/nero_peko.svg" class="l-header__logo" alt="ネロ＆ペコ アイコン" />
+      <nav class="l-header__nav">
+        <ul class="l-header__nav-list">
           <li><a href="#about">ABOUT</a></li>
           <li><a href="#works">WORKS</a></li>
           <li><a href="#skill">SKILL</a></li>
@@ -93,33 +93,7 @@
               ※スクリーンショットやプロジェクトの詳細は守秘義務の関係上、公開を控えさせていただきます。
             </p>
           </header>
-          <section>
-            <header>
-              <p>2008年～2011年</p>
-              <h4>学生アルバイト情報サイト</h4>
-            </header>
-            <section>
-              <h5>プロジェクト概要</h5>
-              <p>学校公認の大学生向けアルバイト情報サイトの開発、保守、運用</p>
-              <ul>
-                <li>プロジェクトマネージャー 1名</li>
-                <li>エンジニア 2名</li>
-                <li>デザイナー 2名</li>
-                <li>(参加時点)</li>
-              </ul>
-              <p>
-                使用技術／ツール：Photoshop, Illustrator, HTML, CSS, Tomcat,
-                Zope, PHP, PostgreSQL, Linux, Subversion
-              </p>
-            </section>
-            <section>
-              <h5>担当業務</h5>
-              <p>バナー作成, イベントサイトのデザイン・コーディング</p>
-              <p>
-                掲載される求人情報のバナー作成をメインに、関連するイベントの特設ページや特設サイトなどの作成を担当しました。実際にサイトを閲覧するのは大学生ですが、大学公認のアルバイト情報サイトということで、フランクになりすぎないように配慮しつつ、フレンドリーなデザインというバランスを心がけて作成を行いました。
-              </p>
-            </section>
-          </section>
+          <!-- 職務経歴（JSで表示） -->
         </section>
         <section>
           <head>
@@ -134,9 +108,7 @@
               <li>
                 2020年
                 <ul>
-                  <li>
-                    バレーボールチーム（近畿クラブスフィーダ）のホームゲームポスター作成
-                  </li>
+                  <li>バレーボールチーム（近畿クラブスフィーダ）のホームゲームポスター作成</li>
                   <li>バレーボールチーム（兵庫デルフィーノ）への写真提供</li>
                 </ul>
               </li>

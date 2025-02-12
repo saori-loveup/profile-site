@@ -1,0 +1,29 @@
+@use "../global" as g;
+
+.l-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2.5vw;
+  &__logo {
+    height: 4vw;
+    min-height: 2rem;
+  }
+  &__nav {
+    flex: 1;
+    & ul {
+      display: flex;
+      justify-content: flex-end;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    & li {
+      margin: 0 0 0 1.5rem;
+    }
+    & a {
+      text-decoration: none;
+      font-weight: 600;
+    }
+  }
+}
