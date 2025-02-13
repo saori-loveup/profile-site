@@ -1,0 +1,28 @@
+@charset "UTF-8";
+@use "../global" as g;
+
+.l-footer {
+  background-color: g.$main-color;
+  color: g.$light-color;
+  position: relative;
+  margin-top: 1rem; // 境界線の高さの確保
+  // 境界線
+  &::before {
+    display: block;
+    position: absolute;
+    content: "";
+    background-image: url("/img/boundary.svg");
+    background-repeat: repeat-x;
+    width: 100%;
+    height: 2rem;
+    top: -1rem;
+    left: 0;
+    z-index: -1;
+  }
+
+  &__copy {
+    margin: 0;
+    padding: 1.5rem;
+    text-align: center;
+  }
+}
