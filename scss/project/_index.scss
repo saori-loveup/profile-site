@@ -31,10 +31,41 @@
 
 // ABOUT
 .p-about {
+  background-color: g.$light-color;
+  //background-image: url(/img/bg_noize.png);
+  background-image: g.$wigle;
 }
 
 // WORKS
 .p-works {
+  background-color: g.$main-color;
+  color: g.$light-color;
+  position: relative;
+  z-index: 2;
+  // 境界線 top
+  &::before {
+    display: block;
+    position: absolute;
+    content: "";
+    background-image: url("/img/boundary.svg");
+    background-repeat: repeat-x;
+    width: 100%;
+    height: 2rem;
+    top: -1rem;
+    left: 0;
+  }
+  // 境界線 bottom
+  &::after {
+    display: block;
+    position: absolute;
+    content: "";
+    background-image: url("/img/boundary.svg");
+    background-repeat: repeat-x;
+    width: 100%;
+    height: 2rem;
+    bottom: -1rem;
+    left: 0;
+  }
 }
 
 // SKILL
@@ -43,4 +74,6 @@
 
 // CONTACT
 .p-contact {
+  background-color: #f0f0f0;
+  background-image: g.$graph-paper;
 }

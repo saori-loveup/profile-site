@@ -1,0 +1,18 @@
+@charset "UTF-8";
+@use "../global" as g;
+
+.l-main {
+  &__section {
+    padding: 4rem 0 5.5rem;
+    &-inner {
+      max-width: 75rem;
+      width: 90vw;
+      margin: 0 auto;
+    }
+  }
+  &__heading {
+    font-family: g.$darumadrop-one;
+    font-size: 4rem;
+    text-align: center;
+  }
+}

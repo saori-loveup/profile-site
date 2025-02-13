@@ -5,7 +5,7 @@
   background-color: g.$main-color;
   color: g.$light-color;
   position: relative;
-  margin-top: 1rem; // 境界線の高さの確保
+  z-index: 2;
   // 境界線
   &::before {
     display: block;
@@ -17,7 +17,6 @@
     height: 2rem;
     top: -1rem;
     left: 0;
-    z-index: -1;
   }
 
   &__copy {
