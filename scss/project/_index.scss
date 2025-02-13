@@ -1,0 +1,46 @@
+@charset "UTF-8";
+@use "../global" as g;
+
+// ファーストビュー
+.p-main-visual {
+  width: 100%;
+  height: 100vh;
+  padding: 4rem;
+  font-family: g.$darumadrop-one;
+  text-align: center;
+  line-height: 1.2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  & h1 {
+    font-size: 5rem;
+    margin: 0;
+  }
+  &__lead {
+    font-size: 2rem;
+    margin: 0;
+  }
+  &__image {
+    padding-top: 2rem;
+    & img {
+      width: auto;
+      height: 40vh;
+    }
+  }
+}
+
+// ABOUT
+.p-about {
+}
+
+// WORKS
+.p-works {
+}
+
+// SKILL
+.p-skill {
+}
+
+// CONTACT
+.p-contact {
+}

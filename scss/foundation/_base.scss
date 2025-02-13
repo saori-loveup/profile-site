@@ -1,5 +1,11 @@
 @use "../global" as g;
 
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 body {
   line-height: 1.8;
   font-family: "Noto Sans JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans",
@@ -15,6 +21,9 @@ img {
 
 a {
   color: g.$link-color;
+  &:hover {
+    filter: opacity(0.5);
+  }
 }
 
 button,
