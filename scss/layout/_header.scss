@@ -29,6 +29,24 @@
     & a {
       text-decoration: none;
       font-weight: 600;
+      position: relative;
+      padding-bottom: 0.5rem;
+      filter: none;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 0;
+        height: 3px;
+        background-color: g.$main-color; /* 下線の色 */
+        transition: all 0.4s ease;
+      }
+
+      &:hover::before {
+        width: 100%;
+        left: 0;
+      }
     }
   }
 }

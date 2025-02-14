@@ -8,8 +8,7 @@
 
 body {
   line-height: 1.8;
-  font-family: "Noto Sans JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans",
-    Meiryo, sans-serif;
+  font-family: "Noto Sans JP", "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
   background-color: g.$base-color;
 }
 
@@ -27,28 +26,13 @@ a {
   }
 }
 
-input {
+input,
+textarea {
   margin: 0;
   padding: 0;
-}
-textarea {
-  padding: 0;
-  font: inherit;
-  color: inherit;
-}
-button {
-  font: inherit;
-  padding: 0;
-  background-color: transparent;
-  border: none;
-  color: inherit;
-  cursor: pointer;
-}
-button,
-[type="submit"] {
-  cursor: pointer;
-}
-button[disabled],
-input[type="submit"][disabled] {
-  cursor: default;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }

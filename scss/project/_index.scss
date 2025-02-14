@@ -32,7 +32,6 @@
 // ABOUT
 .p-about {
   background-color: g.$light-color;
-  //background-image: url(/img/bg_noize.png);
   background-image: g.$wigle;
 }
 
@@ -76,4 +75,27 @@
 .p-contact {
   background-color: #f0f0f0;
   background-image: g.$graph-paper;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    &-label {
+      width: 30%;
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    &-input {
+      flex: 1;
+      padding-left: 1rem;
+      input,
+      textarea {
+        width: 100%;
+      }
+    }
+  }
+  &__bottom {
+    padding: 0.5rem;
+    text-align: center;
+  }
 }

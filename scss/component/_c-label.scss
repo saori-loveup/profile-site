@@ -1,0 +1,22 @@
+@charset "UTF-8";
+@use "../global" as g;
+
+// フォームのラベル
+.c-input-label {
+  &__required {
+    padding-right: 4em;
+    position: relative;
+    &::after {
+      content: "必須";
+      position: absolute;
+      display: inline-block;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      background-color: g.$danger-color;
+      font-size: 1rem;
+      color: g.$light-color;
+      padding: 0 1em;
+    }
+  }
+}
