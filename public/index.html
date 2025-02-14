@@ -138,18 +138,27 @@
         <div class="l-main__section-inner">
           <h2 class="l-main__heading">CONTACT</h2>
           <div class="p-contact__wrap">
-            <form>
+            <form novalidate>
               <div class="p-contact__item">
                 <label for="name" class="p-contact__item-label c-input-label__required">お名前</label>
-                <div class="p-contact__item-input"><input id="name" name="name" type="text" required /></div>
+                <div class="p-contact__item-input">
+                  <input id="name" name="name" type="text" required />
+                  <div class="p-contact__item-error"></div>
+                </div>
               </div>
               <div class="p-contact__item">
                 <label for="mail" class="p-contact__item-label c-input-label__required">メールアドレス</label>
-                <div class="p-contact__item-input"><input id="mail" name="name" type="email" required /></div>
+                <div class="p-contact__item-input">
+                  <input id="mail" name="name" type="email" required />
+                  <div class="p-contact__item-error"></div>
+                </div>
               </div>
               <div class="p-contact__item">
                 <label id="message" class="p-contact__item-label c-input-label__required">お問い合わせ内容</label>
-                <div class="p-contact__item-input"><textarea id="message" name="message" required></textarea></div>
+                <div class="p-contact__item-input">
+                  <textarea id="message" name="message" required></textarea>
+                  <div class="p-contact__item-error"></div>
+                </div>
               </div>
               <div class="p-contact__bottom">
                 <input type="submit" value="送信" class="c-button-submit" />

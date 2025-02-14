@@ -94,6 +94,9 @@
         width: 100%;
       }
     }
+    &-error {
+      color: g.$danger-color;
+    }
   }
   &__bottom {
     padding: 0.5rem;
