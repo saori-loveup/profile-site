@@ -1,16 +1,9 @@
 @charset "UTF-8";
 @use "../global" as g;
 
-/* Footer
+/* WORKS
  * ----------------------------------------------------------------- */
-
-.l-footer {
+.p-works {
   background-color: g.$main-color;
   color: g.$light-color;
-
-  &__copy {
-    margin: 0;
-    padding: 1.5rem;
-    text-align: center;
-  }
 }

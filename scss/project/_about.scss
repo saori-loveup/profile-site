@@ -1,0 +1,9 @@
+@charset "UTF-8";
+@use "../global" as g;
+
+/* ABOUT
+ * ----------------------------------------------------------------- */
+.p-about {
+  background-color: g.$light-color;
+  background-image: g.$wigle;
+}

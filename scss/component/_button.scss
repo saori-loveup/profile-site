@@ -1,0 +1,29 @@
+@charset "UTF-8";
+@use "../global" as g;
+
+/* Component: ボタン
+ * ----------------------------------------------------------------- */
+
+.c-btn {
+  display: inline-block;
+  border: 5px solid g.$main-color;
+  padding: 0.5rem;
+  font-weight: 600;
+  text-align: center;
+
+  cursor: pointer;
+  &[disabled],
+  &[type="submit"][disabled] {
+    cursor: default;
+    filter: opacity(0.5);
+  }
+
+  // submit
+  &--submit {
+    background-color: g.$primary-color;
+    color: g.$light-color;
+    font-size: 1.25rem;
+    min-width: 10rem;
+    padding: 0.5rem 1.5rem;
+  }
+}

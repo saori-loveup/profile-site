@@ -1,8 +1,12 @@
 @charset "UTF-8";
 @use "../global" as g;
 
-// フォームのラベル
-.c-input-label {
+/* Component: フォームのラベル
+ * ----------------------------------------------------------------- */
+.c-label {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 700;
   &__required {
     padding-right: 4em;
     position: relative;

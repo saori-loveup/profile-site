@@ -1,0 +1,45 @@
+@charset "UTF-8";
+@use "../global" as g;
+
+/* CONTACT
+ * ----------------------------------------------------------------- */
+.p-contact {
+  background-color: #f0f0f0;
+  background-image: g.$graph-paper;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    &-label {
+      width: 30%;
+    }
+    &-input {
+      flex: 1;
+      padding-left: 1rem;
+      input,
+      textarea {
+        width: 100%;
+      }
+    }
+    &-error {
+      color: g.$danger-color;
+    }
+  }
+  &__bottom {
+    padding: 0.5rem;
+    text-align: center;
+  }
+}
+@include g.media-breakpoint(m) {
+  .p-contact__item {
+    flex-direction: column;
+    align-items: stretch;
+    &-label {
+      width: 100%;
+    }
+    &-input {
+      padding: 0;
+    }
+  }
+}

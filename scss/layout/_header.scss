@@ -1,4 +1,8 @@
+@charset "UTF-8";
 @use "../global" as g;
+
+/* Header
+ * ----------------------------------------------------------------- */
 
 .l-header {
   position: fixed;
@@ -9,10 +13,12 @@
   justify-content: space-between;
   padding: 2.5vw;
   top: 0;
+  // logo
   &__logo {
     height: 4.5vw;
     min-height: 3rem;
   }
+  // navigation
   &__nav {
     flex: 1;
     & ul {

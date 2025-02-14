@@ -1,33 +1,18 @@
 @charset "UTF-8";
 @use "../global" as g;
 
-// フォームの各種パーツのスタイル
-
-input {
+/* Component: フォームの入力欄
+ * ----------------------------------------------------------------- */
+.c-input {
   border: 5px solid g.$main-color;
   padding: 0.5rem;
+  &.is-invalid {
+    border-color: g.$danger-color;
+  }
 }
 
-textarea {
-  border: 5px solid g.$main-color;
-  padding: 0.5rem;
+.c-textarea {
+  @extend .c-input;
   height: 15em;
   line-height: 1.3;
-}
-
-button,
-input[type="submit"] {
-  background-color: g.$primary-color;
-  color: g.$light-color;
-  font-size: 1.25rem;
-  font-weight: 600;
-  text-align: center;
-  min-width: 10rem;
-  padding: 0.5rem 1.5rem;
-  cursor: pointer;
-  &[disabled],
-  &[type="submit"][disabled] {
-    cursor: default;
-    filter: opacity(0.5);
-  }
 }
