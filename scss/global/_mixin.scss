@@ -1,0 +1,12 @@
+// レスポンシブレイアウト用
+///////////////////////////////////////////////////////////////
+$breakpoints: (
+  s: 480px,
+  m: 900px,
+  l: 1200px,
+);
+@mixin media-breakpoint($breakpoint) {
+  @media screen and (max-width: #{map-get($breakpoints, $breakpoint)}) {
+    @content;
+  }
+}

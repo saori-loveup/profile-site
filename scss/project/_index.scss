@@ -81,6 +81,7 @@
     align-items: center;
     margin-bottom: 1.5rem;
     &-label {
+      display: block;
       width: 30%;
       font-size: 1.25rem;
       font-weight: 700;
@@ -97,5 +98,17 @@
   &__bottom {
     padding: 0.5rem;
     text-align: center;
+  }
+}
+@include g.media-breakpoint(m) {
+  .p-contact__item {
+    flex-direction: column;
+    align-items: stretch;
+    &-label {
+      width: 100%;
+    }
+    &-input {
+      padding: 0;
+    }
   }
 }
