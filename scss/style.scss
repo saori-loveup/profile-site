@@ -1,21 +1,6 @@
 @charset "UTF-8";
 
-// ===========================================
-// foundation
-// ===========================================
-@use "foundation/font";
-@use "foundation/normalize";
-@use "foundation/base";
-
-// ===========================================
-// layout
-// ===========================================
-@use "layout/header";
-@use "layout/main";
-@use "layout/footer";
-
-// ===========================================
-// project
-// ===========================================
-
+@use "foundation";
+@use "layout";
+@use "component";
 @use "project";

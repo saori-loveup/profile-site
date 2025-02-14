@@ -21,11 +21,29 @@ img {
 
 a {
   color: g.$link-color;
+  text-decoration: underline;
   &:hover {
     filter: opacity(0.5);
   }
 }
 
+input {
+  margin: 0;
+  padding: 0;
+}
+textarea {
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
+button {
+  font: inherit;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
 button,
 [type="submit"] {
   cursor: pointer;
