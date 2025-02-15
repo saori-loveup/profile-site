@@ -33,37 +33,44 @@ function getWorksData() {
     });
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  getWorksData();
+// フィールドの検証
+function validateField(inputEl: HTMLInputElement | HTMLTextAreaElement, errorEl: HTMLElement) {
+  if (inputEl.checkValidity()) {
+    errorEl.textContent = "";
+    inputEl.classList.remove("is-invalid");
+  } else {
+    errorEl.textContent = inputEl.validationMessage;
+    inputEl.classList.add("is-invalid");
+  }
+}
 
-  const form = <HTMLFormElement>document.querySelector("#contact form")!;
-  const items = document.querySelectorAll(".p-contact__item-input")!;
-
+function handleFormValidation(form: HTMLFormElement, items: NodeListOf<Element>) {
   // リアルタイム検証
   items.forEach((item) => {
-    const inputEl = <HTMLInputElement>item.querySelector("input, textarea")!;
-    const errorEl = item.querySelector(".p-contact__item-error")!;
+    const inputEl = item.querySelector("input, textarea")! as HTMLInputElement | HTMLTextAreaElement;
+    const errorEl = item.querySelector(".p-contact__item-error")! as HTMLElement;
     inputEl.addEventListener("blur", () => {
-      if (inputEl.checkValidity()) {
-        errorEl.textContent = "";
-      } else {
-        errorEl.textContent = inputEl.validationMessage;
-      }
+      validateField(inputEl, errorEl);
     });
   });
 
+  // submit時の検証
   form.addEventListener("submit", (event) => {
     if (!form.checkValidity()) {
       items.forEach((item) => {
-        const inputEl = <HTMLInputElement>item.querySelector("input, textarea")!;
-        const errorEl = item.querySelector(".p-contact__item-error")!;
-        if (inputEl.checkValidity()) {
-          errorEl.textContent = "";
-        } else {
-          errorEl.textContent = inputEl.validationMessage;
-        }
+        const inputEl = item.querySelector("input, textarea")! as HTMLInputElement | HTMLTextAreaElement;
+        const errorEl = item.querySelector(".p-contact__item-error")! as HTMLElement;
+        validateField(inputEl, errorEl);
         event.preventDefault();
       });
     }
   });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  getWorksData();
+
+  const form = document.querySelector("#contact form")! as HTMLFormElement;
+  const items = document.querySelectorAll(".p-contact__item-input")! as NodeListOf<HTMLElement>;
+  handleFormValidation(form, items);
 });

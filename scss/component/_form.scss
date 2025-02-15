@@ -6,6 +6,7 @@
 .c-input {
   border: 5px solid g.$main-color;
   padding: 0.5rem;
+  height: 3rem;
   &.is-invalid {
     border-color: g.$danger-color;
   }

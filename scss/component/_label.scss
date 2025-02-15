@@ -7,6 +7,7 @@
   display: block;
   font-size: 1.25rem;
   font-weight: 700;
+  line-height: 3rem;
   &__required {
     padding-right: 4em;
     position: relative;
@@ -19,6 +20,7 @@
       transform: translateY(-50%);
       background-color: g.$danger-color;
       font-size: 1rem;
+      line-height: 1.8;
       color: g.$light-color;
       padding: 0 1em;
     }
