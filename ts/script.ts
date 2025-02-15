@@ -43,9 +43,8 @@ function validateField(inputEl: HTMLInputElement | HTMLTextAreaElement, errorEl:
     inputEl.classList.add("is-invalid");
   }
 }
-
-function handleFormValidation(form: HTMLFormElement, items: NodeListOf<Element>) {
-  // リアルタイム検証
+// フィールドのリアルタイム検証
+function setValidateField(items: NodeListOf<Element>) {
   items.forEach((item) => {
     const inputEl = item.querySelector("input, textarea")! as HTMLInputElement | HTMLTextAreaElement;
     const errorEl = item.querySelector(".p-contact__item-error")! as HTMLElement;
@@ -53,16 +52,39 @@ function handleFormValidation(form: HTMLFormElement, items: NodeListOf<Element>)
       validateField(inputEl, errorEl);
     });
   });
+}
 
-  // submit時の検証
+// フォームの送信時の処理
+function submitForm(form: HTMLFormElement, items: NodeListOf<Element>) {
   form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    // 送信前にバリデーションする
     if (!form.checkValidity()) {
+      // バリデーションが失敗した場合、エラーメッセージを表示
       items.forEach((item) => {
         const inputEl = item.querySelector("input, textarea")! as HTMLInputElement | HTMLTextAreaElement;
         const errorEl = item.querySelector(".p-contact__item-error")! as HTMLElement;
         validateField(inputEl, errorEl);
-        event.preventDefault();
       });
+    } else {
+      // バリデーション成功した場合、PHPにデータ送信
+      const formData = new FormData(form);
+      const actionUrl = form.getAttribute("data-action") || ""; // data-action属性で送信先を取得
+
+      fetch(actionUrl, {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.json()) // PHPからのレスポンスをJSONとして受け取る
+        .then((data) => {
+          // TODO:成功時の処理
+          console.log(data);
+        })
+        .catch((error) => {
+          // エラー時の処理
+          console.log(error);
+        });
     }
   });
 }
@@ -72,5 +94,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const form = document.querySelector("#contact form")! as HTMLFormElement;
   const items = document.querySelectorAll(".p-contact__item-input")! as NodeListOf<HTMLElement>;
-  handleFormValidation(form, items);
+  // リアルタイム検証を設定
+  setValidateField(items);
+
+  // フォーム送信処理
+  submitForm(form, items);
 });
