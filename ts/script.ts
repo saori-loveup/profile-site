@@ -78,12 +78,16 @@ function submitForm(form: HTMLFormElement, items: NodeListOf<Element>) {
       })
         .then((response) => response.json()) // PHPからのレスポンスをJSONとして受け取る
         .then((data) => {
-          // TODO:成功時の処理
-          console.log(data);
+          // TODO
+          if (data.success) {
+            alert("送信が完了しました");
+            form.reset();
+          } else {
+            alert(data.error);
+          }
         })
         .catch((error) => {
-          // エラー時の処理
-          console.log(error);
+          console.error("通信に失敗しました", error);
         });
     }
   });
