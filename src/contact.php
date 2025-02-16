@@ -11,21 +11,21 @@ $message = $_POST['message'];
 $error = "";
 
 if(empty($name)) {
-    $error .= '「お名前」が入力されていません。\n';
+    $error .= "「お名前」が入力されていません。\n";
 }
 if(empty($email)) {
-    $error .= '「メールアドレス」が入力されていません。\n';
+    $error .= "「メールアドレス」が入力されていません。\n";
 }
 $regex = '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/';
 if(preg_match($regex, $email) !== 1) {
-    $error .= '「メールアドレス」の形式が正しくありません。\n';
+    $error .= "「メールアドレス」の形式が正しくありません。\n";
 }
 if(empty($message)) {
-    $error .= '「お問い合わせ内容」が入力されていません。\n';
+    $error .= "「お問い合わせ内容」が入力されていません。\n";
 }
 // エラーがあった場合は送信せずにエラーを返す
 if($error) {
-    echo json_encode(['success' => false, 'error' => $error]);
+    echo json_encode(['success' => false, 'error' => nl2br($error)]);
     exit;
 }
 

@@ -39,3 +39,11 @@ textarea {
   -moz-appearance: none;
   appearance: none;
 }
+
+button,
+input[type="submit"] {
+  cursor: poniter;
+  &:focus-visible {
+    outline: none;
+  }
+}

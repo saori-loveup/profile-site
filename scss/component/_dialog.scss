@@ -1,0 +1,63 @@
+@charset "UTF-8";
+@use "../global" as g;
+
+/* Component: ダイアログ <dialog>
+ * ----------------------------------------------------------------- */
+.c-dialog {
+  border: none;
+  box-shadow: 0 0 3px 0px rgba(0, 0, 0, 0.2);
+  padding: 0;
+  &__inner {
+    position: relative;
+    padding: 2rem;
+  }
+  // アイコンの表示
+  &__header {
+    text-align: center;
+    padding-bottom: 1rem;
+    & .material-symbols-outlined {
+      font-size: 5rem;
+    }
+    // 特定のアイコンでは色を変える
+    &--check_circle {
+      color: g.$success-color;
+    }
+    &--error {
+      color: g.$danger-color;
+    }
+  }
+  //&__content {}
+  &__close {
+    display: inline-block;
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+    line-height: 1;
+    padding: 0;
+    background-color: g.$main-color;
+    color: g.$light-color;
+    border: none;
+  }
+
+  // モーダル
+  &::backdrop {
+    backdrop-filter: blur(5px);
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  &[open] {
+    animation-name: slideIn;
+    animation-fill-mode: forwards;
+    animation-duration: 500ms;
+    animation-timing-function: ease-out;
+  }
+}

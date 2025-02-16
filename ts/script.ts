@@ -1,11 +1,11 @@
 // GoogleスプレッドシートからApp Scriptで生成したJSONデータを取得し、htmlを生成
 function getWorksData() {
-  const api_url =
+  const API_URL =
     "https://script.googleusercontent.com/macros/echo?user_content_key=USxo2VI_MCXMZOe3WRSJu95dkETaj7ue3CnZ0mb8gs8NDTj1c2GSTJD5kvuWdL68VMdKFRq768n4-QeP3dVWkc7ZsZsmqbB6m5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnEgjy-mgYYV3AqNquoVkfcTfgMZA1aujKLRMnGXIyUp18OHgyRsRZqE1vg9K88Vd3gS2C6tzT5u0egOL7NB2-U8ifep_a6B0kg&lib=MfGMSyHYhouNuqePoGWD6BmqnDSDUYNzp";
-  fetch(api_url)
+  fetch(API_URL)
     .then((responce) => responce.json())
     .then((works_data) => {
-      const parent_element = document.getElementById("js-works")!;
+      const parentEl = document.getElementById("js-works")!;
       for (const data of works_data) {
         const html = `
         <section>
@@ -28,7 +28,7 @@ function getWorksData() {
             </section>
           </section>
         `;
-        parent_element.insertAdjacentHTML("beforeend", html);
+        parentEl.insertAdjacentHTML("beforeend", html);
       }
     });
 }
@@ -54,6 +54,61 @@ function setValidateField(items: NodeListOf<Element>) {
   });
 }
 
+/* ダイアログの要素を作成する
+ *   html ダイアログに表示する内容
+ *   icon ダイアログの上部に表示するアイコン（Google Fontsのマテリアルシンボルのアイコン名）
+ */
+function createDialog(html: string, icon: string = ""): HTMLDialogElement {
+  // ダイアログ用のHTMLを作成
+  const dialog = document.createElement("dialog");
+  dialog.classList.add("c-dialog");
+
+  const dialogInnerEl = document.createElement("div");
+  dialogInnerEl.classList.add("c-dialog__inner");
+
+  if (icon) {
+    const dialogHeaderEl = document.createElement("div");
+    dialogHeaderEl.classList.add("c-dialog__header", `c-dialog__header--${icon}`);
+    dialogHeaderEl.insertAdjacentHTML("afterbegin", `<span class="material-symbols-outlined">${icon}</span>`);
+    dialogInnerEl.append(dialogHeaderEl);
+  }
+
+  const dialogContentEl = document.createElement("div");
+  dialogContentEl.classList.add("c-dialog__content");
+  dialogContentEl.insertAdjacentHTML("afterbegin", html);
+
+  const dialogCloseEl = document.createElement("button");
+  dialogCloseEl.classList.add("c-dialog__close", "c-btn");
+  dialogCloseEl.insertAdjacentHTML("afterbegin", '<span class="material-symbols-outlined">close</span>');
+
+  dialog.append(dialogInnerEl);
+  dialogInnerEl.append(dialogContentEl, dialogCloseEl);
+
+  document.body.append(dialog);
+
+  // 閉じるボタンのイベント
+  dialogCloseEl.addEventListener("click", function () {
+    closeDialog(dialog);
+  });
+  // モーダル（backdrop）クリックで閉じる
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) {
+      closeDialog(dialog);
+    }
+  });
+
+  return dialog;
+}
+function showDialog(dialog: HTMLDialogElement) {
+  document.body.style.overflow = "hidden";
+  dialog.showModal();
+}
+function closeDialog(dialog: HTMLDialogElement) {
+  document.body.style.overflow = "auto";
+  dialog.close();
+  dialog.remove();
+}
+
 // フォームの送信時の処理
 function submitForm(form: HTMLFormElement, items: NodeListOf<Element>) {
   form.addEventListener("submit", (event) => {
@@ -64,7 +119,7 @@ function submitForm(form: HTMLFormElement, items: NodeListOf<Element>) {
       // バリデーションが失敗した場合、エラーメッセージを表示
       items.forEach((item) => {
         const inputEl = item.querySelector("input, textarea")! as HTMLInputElement | HTMLTextAreaElement;
-        const errorEl = item.querySelector(".p-contact__item-error")! as HTMLElement;
+        const errorEl = item.querySelector(".js-contact-error")! as HTMLElement;
         validateField(inputEl, errorEl);
       });
     } else {
@@ -78,12 +133,13 @@ function submitForm(form: HTMLFormElement, items: NodeListOf<Element>) {
       })
         .then((response) => response.json()) // PHPからのレスポンスをJSONとして受け取る
         .then((data) => {
-          // TODO
           if (data.success) {
-            alert("送信が完了しました");
+            const dialog = createDialog("送信が完了しました。", "check_circle");
+            showDialog(dialog);
             form.reset();
           } else {
-            alert(data.error);
+            const dialog = createDialog(data.error, "error");
+            showDialog(dialog);
           }
         })
         .catch((error) => {

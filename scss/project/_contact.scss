@@ -10,7 +10,6 @@
   &__item {
     display: flex;
     align-items: flex-start;
-    margin-bottom: 1.5rem;
     &-label {
       width: 30%;
     }
@@ -24,6 +23,7 @@
     }
     &-error {
       color: g.$danger-color;
+      min-height: 2.5rem;
     }
   }
   &__bottom {
