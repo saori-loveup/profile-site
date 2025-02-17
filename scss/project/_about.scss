@@ -6,4 +6,96 @@
 .p-about {
   background-color: g.$light-color;
   background-image: g.$wigle;
+  font-size: 1.25rem;
+  &__basic-info {
+    display: flex;
+    align-items: center;
+    padding-bottom: 2rem;
+  }
+  &__name {
+    font-size: clamp(2rem, 1.333rem + 2.22vw, 3rem);
+    font-weight: 500;
+    margin: 0;
+  }
+  &__name-en {
+    margin-left: 1em;
+    font-size: 2rem;
+    font-weight: 300;
+  }
+  &__social-links {
+    flex: 1;
+    justify-content: flex-end;
+    img {
+      width: 2.5rem;
+    }
+  }
+  &__title {
+    font-size: 1.5rem;
+    position: relative;
+    margin-bottom: 0;
+    padding-left: 1.75rem;
+    &::before {
+      content: "pets";
+      font-family: "Material Symbols Outlined";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+  }
+  &__certification {
+    margin-top: 1rem;
+    min-width: 70%;
+    &-name {
+      font-weight: 600;
+    }
+    &-ym {
+      display: inline-block;
+      width: 6em;
+    }
+  }
+}
+
+@include g.media-breakpoint(m) {
+  .p-about {
+    font-size: 1rem;
+  }
+}
+@include g.media-breakpoint(s) {
+  .p-about {
+    &__basic-info {
+      flex-direction: column;
+    }
+    &__name-en {
+      display: block;
+      margin: 0 0 0.5rem 0;
+      text-align: center;
+      font-weight: 300;
+      line-height: 1;
+    }
+    &__social-links {
+      img {
+        width: 1.5rem;
+      }
+    }
+    &__certification {
+      font-size: 0.75rem;
+      width: 100%;
+      td,
+      th {
+        display: block;
+        &:first-child {
+          border-bottom: none;
+          padding-bottom: 0;
+        }
+        &:last-child {
+          border-top: none;
+          padding-top: 0;
+        }
+      }
+      td {
+        border-top: none;
+      }
+    }
+  }
 }

@@ -1,0 +1,18 @@
+@charset "UTF-8";
+@use "../global" as g;
+
+/* Component: テーブル
+ * ----------------------------------------------------------------- */
+.c-table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  th,
+  td {
+    border: 3px solid g.$border-color;
+    padding: 0.5rem 1rem;
+  }
+  th {
+    background-color: g.$main-color;
+    color: g.$light-color;
+  }
+}
