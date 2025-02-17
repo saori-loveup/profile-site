@@ -176,7 +176,7 @@ function changeHeaderColorchange() {
   const darkColorEl = document.getElementById("works")! as HTMLElement;
   const dividerHeight = getRem(2); // divider分（はみ出している）の高さ
   const changeColorOffsetTop = darkColorEl.getBoundingClientRect().top - dividerHeight;
-  const changeColorOffsetBottom = darkColorEl.getBoundingClientRect().bottom + dividerHeight;
+  const changeColorOffsetBottom = darkColorEl.getBoundingClientRect().bottom;
   const logoOffsetTop = logoEl.getBoundingClientRect().top;
   if (changeColorOffsetTop <= logoOffsetTop && changeColorOffsetBottom >= logoOffsetTop) {
     headerEl.classList.add("is-light");
