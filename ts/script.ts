@@ -178,7 +178,7 @@ function changeHeaderColorchange() {
   const changeColorOffsetTop = darkColorEl.getBoundingClientRect().top - dividerHeight;
   const changeColorOffsetBottom = darkColorEl.getBoundingClientRect().bottom + dividerHeight;
   const logoOffsetTop = logoEl.getBoundingClientRect().top;
-  if (changeColorOffsetTop <= logoOffsetTop && changeColorOffsetBottom >= 0) {
+  if (changeColorOffsetTop <= logoOffsetTop && changeColorOffsetBottom >= logoOffsetTop) {
     headerEl.classList.add("is-light");
   } else {
     headerEl.classList.remove("is-light");
