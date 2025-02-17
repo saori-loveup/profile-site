@@ -149,7 +149,49 @@ function submitForm(form: HTMLFormElement, items: NodeListOf<Element>) {
   });
 }
 
+// CSSのremでのサイズ取得
+function getRem(number: number) {
+  const root = document.documentElement; // htmlのルート要素を取得
+  const rootFontSize = window.getComputedStyle(root).getPropertyValue("font-size"); // rootのフォントサイズを取得(〇〇px);
+  const rem = parseFloat(rootFontSize); // 数字に変換
+  return rem * number;
+}
+
+// ロゴの表示／非表示切替
+function changeLogoVisible() {
+  const logoEl = document.querySelector(".l-header__logo")! as HTMLElement;
+  const triggerEl = document.getElementById("about")! as HTMLElement; // 切り替える基準となる要素
+  const triggerOffset = triggerEl.getBoundingClientRect().top;
+  if (triggerOffset <= 0) {
+    logoEl.classList.add("is-show");
+  } else {
+    logoEl.classList.remove("is-show");
+  }
+}
+
+// ヘッダーのロゴ、ナビゲーションの色変更（黒背景時に白にする）
+function changeHeaderColorchange() {
+  const headerEl = document.querySelector(".l-header")! as HTMLElement;
+  const logoEl = document.querySelector(".l-header__logo")! as HTMLElement;
+  const darkColorEl = document.getElementById("works")! as HTMLElement;
+  const dividerHeight = getRem(2); // divider分（はみ出している）の高さ
+  const changeColorOffsetTop = darkColorEl.getBoundingClientRect().top - dividerHeight;
+  const changeColorOffsetBottom = darkColorEl.getBoundingClientRect().bottom + dividerHeight;
+  const logoOffsetTop = logoEl.getBoundingClientRect().top;
+  if (changeColorOffsetTop <= logoOffsetTop && changeColorOffsetBottom >= 0) {
+    headerEl.classList.add("is-light");
+  } else {
+    headerEl.classList.remove("is-light");
+  }
+}
+
 document.addEventListener("DOMContentLoaded", function () {
+  window.addEventListener("scroll", function () {
+    // スクロールによるヘッダ周りの表示切り替え
+    changeLogoVisible();
+    changeHeaderColorchange();
+  });
+
   getWorksData();
 
   const form = document.querySelector("#contact form")! as HTMLFormElement;

@@ -1,0 +1,15 @@
+@charset "UTF-8";
+@use "../global" as g;
+
+/* Component: リスト
+ * ----------------------------------------------------------------- */
+
+.c-horizontal-list {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  &__item {
+    margin: 0 0.5rem;
+  }
+}

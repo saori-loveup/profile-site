@@ -17,16 +17,22 @@
   &__logo {
     height: 4.5vw;
     min-height: 3rem;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, visibility 0s 0.5s;
+    &.is-show {
+      visibility: visible;
+      opacity: 1;
+      filter: none;
+      transition: opacity 0.5s ease-in-out, filter 0.5s ease-in-out;
+    }
   }
   // navigation
   &__nav {
     flex: 1;
     & ul {
-      display: flex;
       justify-content: flex-end;
       list-style-type: none;
-      margin: 0;
-      padding: 0;
       font-size: clamp(0.75rem, 0.417rem + 1.11vw, 1.25rem);
     }
     & li {
@@ -38,6 +44,7 @@
       position: relative;
       padding-bottom: 0.5rem;
       filter: none;
+      transition: color 0.5s ease-in-out;
       &::before {
         content: "";
         position: absolute;
@@ -53,6 +60,16 @@
         width: 100%;
         left: 0;
       }
+    }
+  }
+  &.is-light {
+    .l-header__nav a {
+      color: g.$light-color;
+      transition: color 0.5s ease-in-out;
+    }
+    .l-header__logo {
+      filter: invert(99%) sepia(59%) saturate(140%) hue-rotate(244deg) brightness(111%) contrast(88%);
+      transition: filter 0.5s ease-in-out;
     }
   }
 }
