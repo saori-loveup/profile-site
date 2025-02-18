@@ -1,0 +1,33 @@
+@charset "UTF-8";
+@use "../global" as g;
+
+/* Utility: 文字関連
+ * ----------------------------------------------------------------- */
+.u-c-danger {
+  color: g.$danger-color;
+}
+.u-c-gray {
+  color: g.$gray-color;
+}
+.u-c-light-gray {
+  color: g.$light-gray-color;
+}
+.u-c-dark-gray {
+  color: g.$dark-gray-color;
+}
+
+.u-fz-xs {
+  font-size: 0.75rem;
+}
+.u-fz-sm {
+  font-size: 0.875rem;
+}
+.u-fz-def {
+  font-size: 1em;
+}
+.u-fz-md {
+  font-size: 1.25rem;
+}
+.u-fz-lg {
+  font-size: 1.5rem;
+}

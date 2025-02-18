@@ -66,6 +66,9 @@
     .l-header__nav a {
       color: g.$light-color;
       transition: color 0.5s ease-in-out;
+      &::before {
+        background-color: g.$light-color;
+      }
     }
     .l-header__logo {
       filter: invert(99%) sepia(59%) saturate(140%) hue-rotate(244deg) brightness(111%) contrast(88%);

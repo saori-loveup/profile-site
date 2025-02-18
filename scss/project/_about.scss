@@ -6,7 +6,6 @@
 .p-about {
   background-color: g.$light-color;
   background-image: g.$wigle;
-  font-size: 1.25rem;
   &__basic-info {
     display: flex;
     align-items: center;
@@ -56,11 +55,6 @@
   }
 }
 
-@include g.media-breakpoint(m) {
-  .p-about {
-    font-size: 1rem;
-  }
-}
 @include g.media-breakpoint(s) {
   .p-about {
     &__basic-info {

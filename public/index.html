@@ -13,11 +13,11 @@
     <header class="l-header">
       <a href="#"><img src="img/nero_peko.svg" class="l-header__logo" alt="ネロ＆ペコ アイコン" /></a>
       <nav class="l-header__nav">
-        <ul class="l-header__nav-list c-horizontal-list">
-          <li class="c-horizontal-list__item"><a href="#about">ABOUT</a></li>
-          <li class="c-horizontal-list__item"><a href="#works">WORKS</a></li>
-          <li class="c-horizontal-list__item"><a href="#skill">SKILL</a></li>
-          <li class="c-horizontal-list__item"><a href="#contact">CONTACT</a></li>
+        <ul class="l-header__nav-list c-list c-list-horizontal">
+          <li class="c-list-horizontal__item"><a href="#about">ABOUT</a></li>
+          <li class="c-list-horizontal__item"><a href="#works">WORKS</a></li>
+          <li class="c-list-horizontal__item"><a href="#skill">SKILL</a></li>
+          <li class="c-list-horizontal__item"><a href="#contact">CONTACT</a></li>
         </ul>
       </nav>
     </header>
@@ -31,19 +31,20 @@
           <img src="img/nero_peko.svg" alt="ネロ＆ペコ イラスト" />
         </div>
       </div>
+
       <!-- #about -->
       <section id="about" class="l-main__section p-about">
         <div class="l-main__section-inner">
           <h2 class="l-main__heading">ABOUT</h2>
           <div class="p-about__basic-info">
             <p class="p-about__name">伊藤 早緒梨<span class="p-about__name-en">Saori Ito</span></p>
-            <ul class="p-about__social-links c-horizontal-list">
-              <li class="c-horizontal-list__item">
+            <ul class="p-about__social-links c-list c-list-horizontal">
+              <li class="c-list-horizontal__item">
                 <a href="https://github.com/saori-loveup/" target="_blank">
                   <img src="img/simpleicons/github.svg" alt="Github" />
                 </a>
               </li>
-              <li class="c-horizontal-list__item">
+              <li class="c-list-horizontal__item">
                 <a href="https://scrapbox.io/si-til/" target="_blank">
                   <img src="img/simpleicons/scrapbox.svg" alt="Scrapbox" />
                 </a>
@@ -98,46 +99,65 @@
           </table>
         </div>
       </section>
+
       <!-- #works -->
       <section id="works" class="l-main__section p-works c-divider--top c-divider--bottom">
         <div class="l-main__section-inner">
           <h2 class="l-main__heading">WORKS</h2>
-          <section id="js-works">
-            <header>
-              <h3>株式会社ネットスパイス</h3>
-              <p>2008年4月～2024年6月</p>
-              <p>※スクリーンショットやプロジェクトの詳細は守秘義務の関係上、公開を控えさせていただきます。</p>
+          <!-- NS 職務経歴 -->
+          <section class="p-works-section">
+            <header class="p-works-section__header">
+              <h3 class="p-works-section__company-name">株式会社ネットスパイス</h3>
+              <p class="p-works-section__term">2008年4月～2024年6月</p>
+              <p class="p-works-section__note">
+                ※スクリーンショットやプロジェクトの詳細は守秘義務の関係上、公開を控えさせていただきます。
+              </p>
             </header>
-            <!-- 職務経歴（JSで表示） -->
+            <ul id="js-works-list" class="p-works-list c-list">
+              <!-- 職務経歴（JSで表示） -->
+            </ul>
           </section>
-          <section>
-            <head>
-              <h3>その他の活動</h3>
-              <ul>
-                <li>
-                  2019年
-                  <ul>
+
+          <!-- その他の活動 -->
+          <section class="p-works-section p-works-section__else u-mb0">
+            <header class="p-works-section__header">
+              <h3 class="p-works-section__company-name">その他の活動</h3>
+            </header>
+            <ul class="p-works-list c-list">
+              <li>
+                <div class="p-works-list__item-content">
+                  <p class="p-works-list__item-period">2019年</p>
+                  <ul class="p-works-list__item-projects c-list type-disc">
                     <li>バレーボールチーム（ヴォレアス北海道）への写真提供</li>
                   </ul>
-                </li>
-                <li>
-                  2020年
-                  <ul>
-                    <li>バレーボールチーム（近畿クラブスフィーダ）のホームゲームポスター作成</li>
+                </div>
+              </li>
+              <li>
+                <div class="p-works-list__item-content">
+                  <p class="p-works-list__item-period c-list">2020年</p>
+                  <ul class="p-works-list__item-projects c-list type-disc">
+                    <li>
+                      バレーボールチーム（近畿クラブスフィーダ）の<a href="img/work/2020_hg_poster.jpg"
+                        >ホームゲームポスター</a
+                      >作成
+                    </li>
                     <li>バレーボールチーム（兵庫デルフィーノ）への写真提供</li>
                   </ul>
-                </li>
-                <li>
-                  2023年
-                  <ul>
+                </div>
+              </li>
+              <li>
+                <div class="p-works-list__item-content">
+                  <p class="p-works-list__item-period c-list">2023年</p>
+                  <ul class="p-works-list__item-projects c-list type-disc">
                     <li>バレーボールチーム（兵庫デルフィーノ）への写真提供</li>
                   </ul>
-                </li>
-              </ul>
-            </head>
+                </div>
+              </li>
+            </ul>
           </section>
         </div>
       </section>
+
       <!-- #skill -->
       <section id="skill" class="l-main__section p-skill">
         <div class="l-main__section-inner">
@@ -145,6 +165,7 @@
           <p>...</p>
         </div>
       </section>
+
       <!-- #contact -->
       <section id="contact" class="l-main__section p-contact">
         <div class="l-main__section-inner">

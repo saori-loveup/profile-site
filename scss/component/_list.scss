@@ -3,13 +3,20 @@
 
 /* Component: リスト
  * ----------------------------------------------------------------- */
-
-.c-horizontal-list {
-  display: flex;
+.c-list {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  &__item {
-    margin: 0 0.5em;
+  // 横並びリスト
+  &-horizontal {
+    display: flex;
+    &__item {
+      margin: 0 0.5em;
+    }
+  }
+  // マーク付き
+  & .type-disc {
+    list-style-type: disc;
+    padding-left: 1.5em;
   }
 }

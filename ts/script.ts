@@ -7,28 +7,51 @@ function getWorksData() {
     .then((works_data) => {
       const parentEl = document.getElementById("js-works")!;
       for (const data of works_data) {
-        const html = `
-        <section>
-            <header>
+        const itemEl = document.createElement("li") as HTMLLIElement; // li要素作成
+        itemEl.classList.add("p-works-list__item");
+        // liの中身HTML
+        const listHtml = `
+        <div class="p-works-list__item-container">
+          <div class="p-works-list__item-content">
+            <p class="p-works-list__item-period">${data.period}</p>
+            <p class="p-works-list__item-project">${data.project}</p>
+          </div>
+          <div class="p-works-list__item-open-detail"><span class="material-symbols-outlined">arrow_forward_ios</span></div>
+        </div>
+        `;
+        itemEl.insertAdjacentHTML("beforeend", listHtml); // li要素にHTMLを挿入
+        document.querySelector("#js-works-list")?.append(itemEl); // li要素をHTMLに追加
+
+        // 詳細HTML
+        const detailHml = `
+          <section class="p-works-detail">
+            <header class="p-works-detail__header">
               <p>${data.period}</p>
               <h4>${data.project}</h4>
             </header>
-            <section>
-              <h5>プロジェクト概要</h5>
-              <p>${data.project_overview}</p>
-              <div>${data.conposition}</div>
-              <p>
-                使用技術／ツール：${data.technology}
-              </p>
-            </section>
-            <section>
-              <h5>担当業務</h5>
-              <p>${data.work}</p>
-              <p>${data.work_detail}</p>
-            </section>
+            <div>
+              <section>
+                <h5>プロジェクト概要</h5>
+                <p>${data.project_overview}</p>
+                <div>${data.composition}</div>
+                <p>
+                  使用技術／ツール：${data.technology}
+                </p>
+              </section>
+              <section>
+                <h5>担当業務</h5>
+                <p>${data.work}</p>
+                <p>${data.work_detail}</p>
+              </section>
+            </div>
           </section>
         `;
-        parentEl.insertAdjacentHTML("beforeend", html);
+        // liクリックの動作を設定
+        itemEl.addEventListener("click", () => {
+          // ダイアログで詳細を表示する
+          const dialog = createDialog(detailHml);
+          showDialog(dialog);
+        });
       }
     });
 }

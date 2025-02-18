@@ -6,6 +6,7 @@
 .l-main {
   &__section {
     padding: 4rem 0 5.5rem;
+    font-size: clamp(1rem, 0.714rem + 0.95vw, 1.25rem);
     &-inner {
       max-width: 75rem;
       width: 90vw;
@@ -14,7 +15,8 @@
   }
   &__heading {
     font-family: g.$darumadrop-one;
-    font-size: 4rem;
+    font-size: clamp(4rem, 1.714rem + 7.62vw, 6rem);
     text-align: center;
+    line-height: 1;
   }
 }
