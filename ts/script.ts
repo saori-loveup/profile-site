@@ -31,17 +31,17 @@ function getWorksData() {
             </header>
             <div>
               <section>
-                <h5>プロジェクト概要</h5>
+                <h5 class="p-works-detail__title">プロジェクト概要</h5>
                 <p>${data.project_overview}</p>
-                <p>構成：${data.composition}</p>
+                <p><span class="p-works-detail__subtitle">構成</span><br />${data.composition}</p>
                 <p>
-                  使用技術／ツール：${data.technology}
+                  <span class="p-works-detail__subtitle">使用技術／ツール</span><br/>${data.technology}
                 </p>
               </section>
               <section>
-                <h5>担当業務</h5>
+                <h5 class="p-works-detail__title">担当業務</h5>
                 <p>${data.work}</p>
-                <p>${data.work_detail}</p>
+                <p><span class="p-works-detail__subtitle">作業内容</span><br/>${data.work_detail}</p>
               </section>
             </div>
           </section>

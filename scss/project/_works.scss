@@ -44,6 +44,10 @@ $border-color: g.$light-color;
       }
       &-container {
         display: flex;
+        cursor: pointer;
+        &:hover {
+          filter: opacity(0.5);
+        }
       }
       &-content {
         flex: 1;

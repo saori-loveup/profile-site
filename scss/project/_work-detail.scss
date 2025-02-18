@@ -3,5 +3,60 @@
 
 /* WORKS - プロジェクトごとの詳細
  * ----------------------------------------------------------------- */
-.p-work-detail {
+.p-works-detail {
+  max-width: 70rem;
+  font-size: 1.25rem;
+  &__header {
+    margin-bottom: 1rem;
+    position: relative;
+    padding: 1rem;
+    &:after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      content: "";
+      background-image: -webkit-repeating-linear-gradient(
+        135deg,
+        g.$border-color,
+        g.$border-color 1px,
+        transparent 2px,
+        transparent 5px
+      );
+      background-image: repeating-linear-gradient(
+        -45deg,
+        g.$border-color,
+        g.$border-color 1px,
+        transparent 2px,
+        transparent 5px
+      );
+      background-size: 7px 7px;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+  }
+  &__period {
+    margin: 0;
+    font-size: 0.9em;
+  }
+  &__project {
+    margin: 0 0 0.25em 0;
+    font-size: 1.25em;
+  }
+  &__title {
+    font-size: 1.1em;
+    font-weight: 900;
+    margin-bottom: 0;
+    border-bottom: 3px solid g.$border-color;
+  }
+  &__subtitle {
+    font-weight: 800;
+    background: linear-gradient(transparent 65%, g.$accent-color 65%);
+  }
+}
+@include g.media-breakpoint(s) {
+  .p-works-detail {
+    font-size: 1rem;
+  }
 }
