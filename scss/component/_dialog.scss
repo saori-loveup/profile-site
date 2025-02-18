@@ -9,7 +9,7 @@
   padding: 0;
   &__inner {
     position: relative;
-    padding: 2rem;
+    padding: 0 2rem 2rem;
   }
   // アイコンの表示
   &__header {
@@ -27,16 +27,20 @@
     }
   }
   //&__content {}
+
   &__close {
-    display: inline-block;
-    position: absolute;
-    top: 0.25rem;
-    right: 0.25rem;
-    line-height: 1;
-    padding: 0;
-    background-color: g.$main-color;
-    color: g.$light-color;
-    border: none;
+    text-align: right;
+    position: sticky;
+    top: 0;
+    padding: 0.25em;
+    button {
+      display: inline-block;
+      line-height: 1;
+      padding: 0;
+      background-color: g.$main-color;
+      color: g.$light-color;
+      border: none;
+    }
   }
 
   // モーダル

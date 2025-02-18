@@ -26,14 +26,14 @@ function getWorksData() {
         const detailHml = `
           <section class="p-works-detail">
             <header class="p-works-detail__header">
-              <p>${data.period}</p>
-              <h4>${data.project}</h4>
+              <p class="p-works-detail__period">${data.period}</p>
+              <h4 class="p-works-detail__project">${data.project}</h4>
             </header>
             <div>
               <section>
                 <h5>プロジェクト概要</h5>
                 <p>${data.project_overview}</p>
-                <div>${data.composition}</div>
+                <p>構成：${data.composition}</p>
                 <p>
                   使用技術／ツール：${data.technology}
                 </p>
@@ -100,12 +100,15 @@ function createDialog(html: string, icon: string = ""): HTMLDialogElement {
   dialogContentEl.classList.add("c-dialog__content");
   dialogContentEl.insertAdjacentHTML("afterbegin", html);
 
-  const dialogCloseEl = document.createElement("button");
-  dialogCloseEl.classList.add("c-dialog__close", "c-btn");
-  dialogCloseEl.insertAdjacentHTML("afterbegin", '<span class="material-symbols-outlined">close</span>');
+  const dialogCloseEl = document.createElement("div");
+  dialogCloseEl.classList.add("c-dialog__close");
+  dialogCloseEl.insertAdjacentHTML(
+    "afterbegin",
+    '<button class="c-btn"><span class="material-symbols-outlined">close</span></div>'
+  );
 
-  dialog.append(dialogInnerEl);
-  dialogInnerEl.append(dialogContentEl, dialogCloseEl);
+  dialog.append(dialogCloseEl, dialogInnerEl);
+  dialogInnerEl.append(dialogContentEl);
 
   document.body.append(dialog);
 
