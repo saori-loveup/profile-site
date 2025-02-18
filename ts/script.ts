@@ -135,6 +135,20 @@ function closeDialog(dialog: HTMLDialogElement) {
   dialog.remove();
 }
 
+// 画像リンクをダイアログで開く
+function openImageDialog() {
+  const anchorEls = document.querySelectorAll("a.js-image-dialog") as NodeListOf<HTMLAnchorElement>;
+  anchorEls.forEach((anchor) => {
+    anchor.addEventListener("click", (event) => {
+      event.preventDefault();
+      const href = anchor.getAttribute("href");
+      const alt = anchor.getAttribute("data-alt");
+      const dialog = createDialog(`<img src="${href}" alt="${alt}">`);
+      showDialog(dialog);
+    });
+  });
+}
+
 // フォームの送信時の処理
 function submitForm(form: HTMLFormElement, items: NodeListOf<Element>) {
   form.addEventListener("submit", (event) => {
@@ -219,6 +233,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   getWorksData();
+  openImageDialog();
 
   const form = document.querySelector("#contact form")! as HTMLFormElement;
   const items = document.querySelectorAll(".p-contact__item-input")! as NodeListOf<HTMLElement>;
