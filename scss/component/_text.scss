@@ -1,0 +1,12 @@
+@charset "UTF-8";
+@use "../global" as g;
+
+/* Component: テキスト関連
+ * ----------------------------------------------------------------- */
+.c-text-note {
+  color: g.$gray-color;
+}
+
+.c-whs-nowrap {
+  white-space: nowrap;
+}

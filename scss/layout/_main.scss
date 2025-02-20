@@ -19,4 +19,18 @@
     text-align: center;
     line-height: 1;
   }
+  &__subheading {
+    font-size: 1.5rem;
+    position: relative;
+    margin-bottom: 0;
+    padding-left: 1.75rem;
+    &::before {
+      content: "pets";
+      font-family: "Material Symbols Outlined";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+    }
+  }
 }

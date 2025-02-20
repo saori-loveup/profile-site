@@ -4,4 +4,73 @@
 /* SKILL
  * ----------------------------------------------------------------- */
 .p-skill {
+  .c-table {
+    margin-top: 1rem;
+  }
+  &__skills {
+    width: 100%;
+    &-skill {
+      font-weight: 800;
+    }
+  }
+  &__certification {
+    min-width: 70%;
+    &-name {
+      font-weight: 600;
+    }
+    &-ym {
+      display: inline-block;
+      width: 6em;
+    }
+  }
+}
+@include g.media-breakpoint(m) {
+  .p-skill {
+    font-size: 0.9rem;
+  }
+}
+@include g.media-breakpoint(s) {
+  .p-skill {
+    &__skills {
+      border-top: 3px solid g.$border-color;
+      td,
+      th {
+        display: block;
+      }
+      .p-skill__skills {
+        &-category {
+          border-top: none;
+        }
+        &-skill {
+          border-top: none;
+          border-bottom: none;
+          padding-bottom: 0;
+        }
+        &-experience {
+          border-top: none;
+          padding-top: 0;
+        }
+      }
+    }
+
+    &__certification {
+      font-size: 0.9rem;
+      width: 100%;
+      td,
+      th {
+        display: block;
+        &:first-child {
+          border-bottom: none;
+          padding-bottom: 0;
+        }
+        &:last-child {
+          border-top: none;
+          padding-top: 0;
+        }
+      }
+      td {
+        border-top: none;
+      }
+    }
+  }
 }

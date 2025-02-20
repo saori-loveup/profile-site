@@ -11,8 +11,17 @@
     border: 3px solid g.$border-color;
     padding: 0.5rem 1rem;
   }
-  th {
-    background-color: g.$main-color;
-    color: g.$light-color;
+  thead {
+    th {
+      background-color: g.$main-color;
+      color: g.$light-color;
+    }
+  }
+  tbody {
+    th {
+      background-color: g.$light-gray-color;
+      vertical-align: top;
+      text-align: left;
+    }
   }
 }
