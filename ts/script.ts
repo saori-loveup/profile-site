@@ -126,13 +126,20 @@ function createDialog(html: string, icon: string = ""): HTMLDialogElement {
   return dialog;
 }
 function showDialog(dialog: HTMLDialogElement) {
-  document.body.style.overflow = "hidden";
+  document.body.style.overflow = "hidden"; // ダイアログ表示中は裏のスクロールはさせない
   dialog.showModal();
+  dialog.classList.add("c-dialog--open");
 }
 function closeDialog(dialog: HTMLDialogElement) {
-  document.body.style.overflow = "auto";
-  dialog.close();
-  dialog.remove();
+  dialog.classList.remove("c-dialog--open");
+  dialog.classList.add("c-dialog--close"); // ダイアログを閉じるときのアニメーションを設定
+
+  dialog.addEventListener("animationend", () => {
+    // 閉じるアニメーション終了後に実際に閉じる
+    dialog.close();
+    dialog.remove();
+    document.body.style.overflow = "auto"; // ダイアログ閉じたら裏のスクロールを許可
+  });
 }
 
 // 画像リンクをダイアログで開く

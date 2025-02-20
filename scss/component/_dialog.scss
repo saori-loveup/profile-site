@@ -58,8 +58,25 @@
       transform: translateY(0);
     }
   }
-  &[open] {
+  @keyframes slideOut {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+  }
+
+  &--open {
     animation-name: slideIn;
+    animation-fill-mode: forwards;
+    animation-duration: 500ms;
+    animation-timing-function: ease-out;
+  }
+  &--close {
+    animation-name: slideOut;
     animation-fill-mode: forwards;
     animation-duration: 500ms;
     animation-timing-function: ease-out;
