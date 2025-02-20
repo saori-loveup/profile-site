@@ -29,6 +29,17 @@
   &__bottom {
     padding: 0.5rem;
     text-align: center;
+    .c-btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      height: 4rem;
+      .c-loader {
+        display: none;
+        width: 2rem;
+        height: 2rem;
+      }
+    }
   }
 }
 @include g.media-breakpoint(m) {

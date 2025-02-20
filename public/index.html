@@ -89,7 +89,9 @@
               </p>
             </header>
             <ul id="js-works-list" class="p-works-list c-list">
-              <!-- 職務経歴（JSで表示） -->
+              <li class="p-works-list__item-loading">
+                <span class="c-loader"></span>
+              </li>
             </ul>
           </section>
 
@@ -342,7 +344,9 @@
                 </div>
               </div>
               <div class="p-contact__bottom">
-                <input type="submit" value="送信" class="c-btn c-btn--submit" />
+                <button type="submit" class="c-btn c-btn--submit">
+                  <span class="p-contact__btn-text">送信</span><span class="c-loader"></span>
+                </button>
               </div>
             </form>
           </div>

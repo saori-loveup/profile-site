@@ -5,6 +5,10 @@ function getWorksData() {
   fetch(API_URL)
     .then((responce) => responce.json())
     .then((works_data) => {
+      // loading を非表示にする
+      const loadingEl = document.querySelector(".p-works-list__item-loading") as HTMLLIElement;
+      loadingEl.style.display = "none";
+
       const parentEl = document.getElementById("js-works")!;
       for (const data of works_data) {
         const itemEl = document.createElement("li") as HTMLLIElement; // li要素作成
@@ -174,6 +178,14 @@ function submitForm(form: HTMLFormElement, items: NodeListOf<Element>) {
       const formData = new FormData(form);
       const actionUrl = form.getAttribute("data-action") || ""; // data-action属性で送信先を取得
 
+      // 送信する時にボタンの表示を変える
+      const buttonEl = document.querySelector(".p-contact__bottom .c-btn--submit") as HTMLButtonElement;
+      const loaderEl = buttonEl.querySelector(".c-loader") as HTMLElement;
+      const buttonTextEl = buttonEl.querySelector(".p-contact__btn-text") as HTMLElement;
+      buttonEl.disabled = true;
+      loaderEl.style.display = "inline-block";
+      buttonTextEl.style.display = "none";
+
       fetch(actionUrl, {
         method: "POST",
         body: formData,
@@ -188,9 +200,15 @@ function submitForm(form: HTMLFormElement, items: NodeListOf<Element>) {
             const dialog = createDialog(data.error, "error");
             showDialog(dialog);
           }
+          buttonEl.disabled = false;
+          loaderEl.style.display = "";
+          buttonTextEl.style.display = "";
         })
         .catch((error) => {
           console.error("通信に失敗しました", error);
+          buttonEl.disabled = false;
+          loaderEl.style.display = "";
+          buttonTextEl.style.display = "";
         });
     }
   });
