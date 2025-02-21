@@ -7,7 +7,12 @@
     <meta name="description" content="イトウサオリのプロフィールサイトです。" />
     <link rel="icon" href="favicon.ico" />
     <link rel="stylesheet" href="css/style.css" />
-    <script src="js/script.js"></script>
+    <script type="module">
+      import main from "./js/main.js";
+      if (main) {
+        main();
+      }
+    </script>
   </head>
   <body id="top">
     <header class="l-header">

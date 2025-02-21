@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "target": "es2023",
+    "module": "esnext",
+    "moduleResolution": "node", // ES モジュールの解決を適切に行うため必要
+    "noImplicitAny": true,
+    "outDir": "public/js" // 出力ディレクトリ
+  }
+}
