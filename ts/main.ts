@@ -7,8 +7,6 @@ import { submitForm } from "./submitForm.js";
 
 function main() {
   document.addEventListener("DOMContentLoaded", function () {
-    console.log("start");
-
     window.addEventListener("scroll", function () {
       // スクロールによるヘッダ周りの表示切り替え
       changeLogoVisible();
